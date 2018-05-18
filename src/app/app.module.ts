@@ -8,6 +8,7 @@ import { NbThemeModule } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
+import { PessoasModule } from './pages/pessoas/pessoas.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    PessoasModule,
     RouterModule.forRoot(
       [
         { path: "", component: AppComponent }

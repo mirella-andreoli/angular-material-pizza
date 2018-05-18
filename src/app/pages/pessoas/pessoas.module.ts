@@ -1,12 +1,21 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { MaterialModule } from '../../shareds/@material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PessoasComponent } from './pessoas.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    PessoasComponent
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MaterialModule,
   ],
-  declarations: [PessoasComponent]
+  declarations: [PessoasComponent],
+  exports: [
+    PessoasComponent
+  ]
 })
 export class PessoasModule { }
