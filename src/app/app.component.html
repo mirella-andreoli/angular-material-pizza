@@ -1,29 +1,32 @@
-<mat-toolbar class="mat-toolbar mat-primary nav-bar mat-elevation-z10">
+<mat-toolbar #container class="mat-toolbar mat-primary nav-bar mat-elevation-z3">
   <mat-toolbar-row>
-
-    <button mat-button class="mat-button" (click)="nav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-
-    <span>
-      <h1 class="mat-h1">Pizzaria Nações</h1>
-    </span>
-
+    <div class="col-8 row">
+      <button mat-button color="primary" class="col-1 mat-flat-button" (click)="nav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="col-6 row">
+        <mat-icon class="pizza-icon">local_pizza</mat-icon>
+        <h1 class="pizza-h1">Pizzaria Nações</h1>
+      </span>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
-<router-outlet></router-outlet>
-<mat-sidenav-container color="secondary" (backdropClick)="close()" class="mat-elevation-z9">
-  <mat-sidenav #nav (keydown.escape)="close()" disableClose [fixedTopGap]="0" [fixedBottomGap]="0" class="mat-sidenav::-webkit-scrollbar-thumb">
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <img src="">
-      </mat-toolbar-row>
-    </mat-toolbar>
-    <mat-nav-list class="mat-nav-list">
-      <a mat-list-item routerLink="." *ngFor="let item of itens">{{item}}</a>
+
+<mat-sidenav-container color="secondary" (backdropClick)="close()">
+  <mat-sidenav #nav (keydown.escape)="close()" mode="over" disableClose [fixedInViewport]="true" [fixedTopGap]="64" [fixedBottomGap]="0"
+    class="mat-sidenav::-webkit-scrollbar-thumb mat-elevation-z24">
+    <mat-nav-list class="logo">
+      <mat-toolbar class="logo mat-toolbar">
+        <mat-toolbar-row class="logo">
+          <div>
+            <img src="../assets/logo.jpg">
+          </div>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <a mat-list-item class="itens-menu" routerLink="." *ngFor="let item of itens">{{item}}</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content class="col-sm-1 col-md-1 col-lg-12 col-xl-12">
-    <app-pessoas></app-pessoas>
+  <mat-sidenav-content class="col-12">
+    <app-pessoas class="col-12"></app-pessoas>
   </mat-sidenav-content>
 </mat-sidenav-container>
